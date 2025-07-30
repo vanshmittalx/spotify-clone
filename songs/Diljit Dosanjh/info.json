@@ -1,4 +1,10 @@
 {
     "title": "Diljit 101",
-    "description": "Ultimate 101 Punjabi Hits with Diljit Dosanjh"
+    "description": "Ultimate 101 Punjabi Hits with Diljit Dosanjh",
+    "songs": [
+        "Hass Hass.mp3",
+        "Holster.mp3",
+        "Naina.mp3",
+        "Pistol.mp3"
+    ]
 }

@@ -1,4 +1,9 @@
 {
     "title": "Hot Hits Punjabi",
-    "description": "Catch the hottest Punjabi tracks. Cover- Sidhu Moosewala"
+    "description": "Catch the hottest Punjabi tracks. Cover- Sidhu Moosewala",
+    "songs": [
+        "Afusic - Pal Pal with Talwiinder .mp3",
+        "Fumble.mp3",
+        "Jhol.mp3"
+    ]
 }
