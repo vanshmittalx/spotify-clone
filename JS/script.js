@@ -45,46 +45,32 @@ const playMusic = (track, pause=false, songIndex=0)=>{
 }
 
 async function displayAlbums(){
-    let a = await fetch(`${window.location.origin}/songs/`);
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let anchors = div.getElementsByTagName("a");
+    let a = await fetch(`${window.location.origin}/songs/index.json`);
+    let response = await a.json();
     let cardContainer = document.querySelector(".card-container");
-    let array = Array.from(anchors)
-        for (let index = 0; index < array.length; index++) {
-            const e = array[index];
-
-        if(e.href.includes("/songs")){
-            if(e.href.includes("/songs")) {
-                let splitPart = e.href.split("/songs/")[1];
-                if (splitPart) {
-                    let folder = splitPart.replace("/", "");
-                    let a = await fetch(`${window.location.origin}/songs/${folder}/info.json`);
-                    let response = await a.json();
-                    cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card ">
-              <div class="play" data-folder="${folder}">
+    cardContainer.innerHTML = ""; // Clear existing content
+    
+    for (const album of response.albums) {
+        cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${album.folder}" class="card ">
+              <div class="play" data-folder="${album.folder}">
                 <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="32" cy="32" r="32" fill="#1DB954"/>
                     <polygon points="26,20 26,44 46,32" fill="black"/>
                   </svg>
               </div>
-              <img src="/songs/${folder}/cover.jpeg" alt="">
-              <h2>${response.title}</h2>
-              <p>${response.description}</p>
+              <img src="/songs/${album.folder}/cover.jpeg" alt="">
+              <h2>${album.title}</h2>
+              <p>${album.description}</p>
             </div>`
-                }
-            }
-        }
     }
 
-        Array.from(document.getElementsByClassName("card")).forEach((e) => {
+    Array.from(document.getElementsByClassName("card")).forEach((e) => {
         e.addEventListener("click", async item=>{
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
         });
     });
 
-        Array.from(document.getElementsByClassName("play")).forEach((btn) => {
+    Array.from(document.getElementsByClassName("play")).forEach((btn) => {
         btn.addEventListener("click", async (e) => {
         e.stopPropagation(); // prevent card click conflict
         const folder = e.currentTarget.dataset.folder;
@@ -92,8 +78,6 @@ async function displayAlbums(){
         playMusic(songs[0], false, 0); // play first song of playlist
     });
 });
-
-
 }
 
 async function main() {

@@ -1,0 +1,29 @@
+{
+  "albums": [
+    {
+      "folder": "Diljit Dosanjh",
+      "title": "Diljit 101",
+      "description": "Ultimate 101 Punjabi Hits with Diljit Dosanjh"
+    },
+    {
+      "folder": "english",
+      "title": "I-Pop icons",
+      "description": "Hottest tracks from your favourite I-Pop Icons. Cover- Armaan Malik"
+    },
+    {
+      "folder": "Hot hits Punjabi",
+      "title": "Hot Hits Punjabi",
+      "description": "Catch the hottest Punjabi tracks. Cover- Sidhu Moosewala"
+    },
+    {
+      "folder": "Karan Aujla",
+      "title": "Karan 101",
+      "description": "Ultimate 101 Punjabi Hits with Karan Aujla"
+    },
+    {
+      "folder": "Punjabi",
+      "title": "Punjabi 101",
+      "description": "Ultimate 101 Punjabi Hits with Parmish Verma"
+    }
+  ]
+} 
